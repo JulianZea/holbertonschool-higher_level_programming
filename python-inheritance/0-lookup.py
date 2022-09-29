@@ -1,3 +1,9 @@
 #!/usr/bin/python3
+"""First function"""
+
+
 def lookup(obj):
-    return dir(obj)
+    """
+    function that returns the list of attributes and methods of an object
+    """
+    return(dir(obj))
