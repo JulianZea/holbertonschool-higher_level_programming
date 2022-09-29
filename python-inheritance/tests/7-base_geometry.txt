@@ -1,0 +1,12 @@
+==========
+Test
+==========
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+	>>> BaseGeometry = BaseGeometry()
+	>>> BaseGeometry.integer_validator('abc', 12)
+	>>> BaseGeometry.integer_validator('abc', 'abc')
+	Traceback (most recent all last):
+	...
+	TypeError: abc must be an integer
