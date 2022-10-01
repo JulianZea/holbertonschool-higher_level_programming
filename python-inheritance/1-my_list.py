@@ -1,12 +1,20 @@
 #!/usr/bin/python3
-"""My list"""
+"""This module named 0-rectangle.py
+   Created on Thursday, September 29, 2022
+   @author: Daisy Chipana Lapa
+"""
 
 
 class MyList(list):
-    """Class MyList that inherits from list"""
+    """This class MyList that inherits from list
+    Attributes:
+       Nothing
+    """
     def print_sorted(self):
+        """Function named print_sorted
+              Args:
+                    self: class instance
+              Returns:
+                    Prints the list, but sorted (ascending sort)
         """
-        Print list sorted
-        """
-        new_list = self[:]
-        print(sorted(new_list))
+        print(sorted(self))
