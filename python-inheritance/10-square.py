@@ -1,30 +1,20 @@
 #!/usr/bin/python3
-"""Square #1"""
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-
-class Rectangle(BaseGeometry):
-    """class son rectangle"""
-    def __init__(self, width, height):
-        """Constructor"""
-        self.__width = width
-        self.__height = height
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-
-    def area(self):
-        """"Methodd area"""
-        return self.__width * self.__height
-
-    def __str__(self):
-        """Method __str__"""
-        return ('[Rectangle] {}/{}'.format(self.__width, self.__height))
+"""This module named 10-square.py
+   Created on Thursday, September 29, 2022
+   @author: Daisy Chipana Lapa
+"""
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """class square"""
+    """This class Square
+    Attributes:
+       Nothing
+    """
     def __init__(self, size):
-        """Constructor"""
+        super().integer_validator("size", size)
+        super().__init__(size, size)
         self.__size = size
-        self.integer_validator("size", size)
-        super().__init__(self.__size, self.__size)
+
+    def area(self):
+        return super().area()
