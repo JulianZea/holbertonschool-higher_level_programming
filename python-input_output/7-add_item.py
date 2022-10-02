@@ -1,17 +1,19 @@
 #!/usr/bin/python3
-"""Load, add save"""
-import json
-import sys
-import os.path
+"""
+Module 7-add_item
+Contains function that adds and saves to Python obj to JSON file; loads objects
+"""
 
+
+from sys import argv
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-"""Write a script that adds all arguments to a Python list, and then save them to a file"""
 filename = "add_item.json"
-if os.path.isfile(filename):
-    obj = load_from_json_file(filename)
-else:
-    obj = []
-obj.extend(sys.argv[1:])
-save_to_json_file(obj, filename)
+
+try:
+    existing_content = load_from_json_file(filename)
+except FileNotFoundError:
+    existing_content = []
+
+save_to_json_file(existing_content + argv[1:], filename)
