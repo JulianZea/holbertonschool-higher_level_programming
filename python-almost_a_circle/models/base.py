@@ -3,7 +3,6 @@
 Base class
 """
 import json
-import turtle
 
 
 class Base:
@@ -21,3 +20,13 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        sharing data representation
+        """
+        if list_dictionaries:
+            dict = json.dumps(list_dictionaries)
+            return(dict)
+        return('[]')
