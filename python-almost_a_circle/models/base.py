@@ -3,6 +3,7 @@
 Base class
 """
 import json
+import turtle
 
 
 class Base:
@@ -30,3 +31,17 @@ class Base:
             dict = json.dumps(list_dictionaries)
             return(dict)
         return('[]')
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        writes the JSON string representation of list_objs to a file
+        """
+        new = []
+        open_name = cls.__name__ + '.json'
+        if list_objs is not None:
+            for obj in list_objs:
+                new.append(obj.to_dictionary())
+
+        with open(open_name, 'w') as file:
+            file.write(cls.to_json_string(new))
