@@ -16,3 +16,7 @@ class Test_Base(unittest.TestCase):
 		self.assertEqual(b1.id, 15)
 		self.assertEqual(b2.id, 20)
 		self.assertEqual(b3.id, 4)
+	def test_Base_empty(self):
+		"""Method id empty"""
+		b1 = Base()
+		self.assertEqual(b1.id, 1)
