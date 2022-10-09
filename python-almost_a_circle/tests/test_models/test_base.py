@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+
+"""Unittest for class Base()"""
+
+import unittest
+from models.base import Base
+
+
+class Test_Base(unittest.TestCase):
+	def test_Base_id(self):
+		"""Method that create a sequential id"""
+		b1 = Base(15)
+		b2 = Base(20)
+		b3 = Base(4)
+
+		self.assertEqual(b1.id, 15)
+		self.assertEqual(b2.id, 20)
+		self.assertEqual(b3.id, 4)
