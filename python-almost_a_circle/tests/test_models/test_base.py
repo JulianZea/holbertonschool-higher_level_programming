@@ -36,3 +36,8 @@ class Test_Base(unittest.TestCase):
 		"""Method validates a parameter empty"""
 		json_dictionary = Base.to_json_string(None)
 		self.assertEqual(json_dictionary, '[]')
+
+	def test_Base_to_json_string_empty(self):
+		"""Method validates a parameter empty"""
+		json_dictionary = Base.to_json_string([])
+		self.assertEqual(json_dictionary, '[]')
