@@ -1,9 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 
 """Unittest for class Base()"""
 
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class Test_Base(unittest.TestCase):
@@ -47,3 +48,8 @@ class Test_Base(unittest.TestCase):
 		dictionary = {'x': 3, 'width': 16, 'id': 1, 'height': 9, 'y': 10}
 		json_dictionary = Base.to_json_string([dictionary])
 		self.assertEqual(json_dictionary, '[{"x": 3, "width": 16, "id": 1, "height": 9, "y": 10}]')
+
+	def test_Base_From_json_string_None(self):
+		"""methods From json_string validates a parameter None"""
+		list_output = Rectangle.from_json_string(None)
+		self.assertEqual(list_output, [])
