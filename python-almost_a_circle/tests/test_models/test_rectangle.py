@@ -17,3 +17,6 @@ class Test_Rectangle(unittest.TestCase):
 		r2 = Rectangle(3, 11, 0, 0, 6)
 		self.assertEqual(r1.id, 13)
 		self.assertEqual(r2.id, 6)
+
+	def test_Rectangle_two_arguments(self:)
+
