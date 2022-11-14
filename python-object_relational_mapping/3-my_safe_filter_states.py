@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """List all states where 'name' matches the argument
-But this time, one safe from MySQL injection.
-Username, password, database name, and state name given as user args
-import sys
-import MySQLdb"""
+    But this time, one safe from MySQL injection.
+    Username, password, database name, and state name given as user args"""
+    import sys
+    import MySQLdb
 
 if __name__ == "__main__":
     db = MySQLdb.connect(user=sys.argv[1],
