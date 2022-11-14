@@ -1,28 +1,28 @@
 #!/usr/bin/python3
-"""List all cities from the db by given state
-    Username, password, database name, and state name given as user args
-    Can only use execute() once
-    Sort ascending order by cities.id
+"""This module takes in the name of a state as an argument and lists
+   all cities of that state, using the database hbtn_0e_4_usa.
+   Created on Saturday, November 12, 2022
+   @author: DaisyG Chipana Lapa
 """
-import sys
-import MySQLdb
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3],
-                         host='localhost',
-                         port=3306)
-    cur = db.cursor()
-    cmd = "SELECT cities.name
-         FROM states
-         INNER JOIN cities ON states.id = cities.state_id
-         WHERE states.name=%s
-         ORDER BY cities.id ASC"
-    cur.execute(cmd, (sys.argv[4],))
-    allCities = cur.fetchall()
+if __name__ == '__main__':
+    import MySQLdb
+    from sys import argv
 
-    print(", ".join([city[0] for city in allCities]))
-
+    cont = 0
+    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3], charset="utf8mb4")
+    cur = conn.cursor()
+    cur.execute("SELECT cities.name FROM cities INNER JOIN states "
+                "ON cities.state_id = states.id WHERE BINARY states.name "
+                "= BINARY %(states.name)s ORDER BY cities.id ASC",
+                {'states.name': argv[4]})
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        if cont > 0:
+            print(", ", end="")
+        print(row[0], end="")
+        cont = cont + 1
+    print()
     cur.close()
-    db.close()
+    conn.close()
