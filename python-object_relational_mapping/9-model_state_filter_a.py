@@ -2,7 +2,7 @@
 """Lists all State objects that contain the letter a from
    the database hbtn_0e_6_usa.
    Created on Sunday, December 13, 2022
-   @author: DaisyG Chipana Lapa
+   @author: Julian Zea
 """
 import sys
 from model_state import Base, State
