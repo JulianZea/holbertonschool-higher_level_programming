@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# List all states where 'name' matches the argument
-# Username, password, database name, and state name given as user args
+"""List all states where 'name' matches the argument
+    Username, password, database name, and state name given as user args"""
 import sys
 import MySQLdb
 
