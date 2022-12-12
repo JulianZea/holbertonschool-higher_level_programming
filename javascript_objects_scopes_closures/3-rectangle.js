@@ -1,21 +1,20 @@
 #!/usr/bin/node
 
+/* Write an empty class Rectangle that defines a rectangle */
 class Rectangle {
+  /* The constructor must take 2 arguments w and h */
   constructor (w, h) {
     if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
     }
+    /* Create an instance method called print() that prints the rectangle
+using the character X */
   }
-  print () {
-    let rows, columns;
 
-    for (rows = 0; rows < this.height; rows++) {
-      let str = '';
-      for (columns = 0; columns < this.width; columns++) {
-        str += 'X';
-      }
-      console.log(str);
+  print () {
+    for (let i = 0; i < this.height; i++) {
+      console.log('X'.repeat(this.width));
     }
   }
 }
